@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script setup></script>
 
 <template>
@@ -15,3 +16,8 @@
 </template>
 
 <style scoped></style>
+=======
+<template></template>
+
+<script></script>
+>>>>>>> cb3fa8040eb4d89fb93ca0729b850eb82e36e45a
