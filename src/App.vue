@@ -26,6 +26,7 @@
 </template>
 
 <script setup>
+import ProductCard from './components/ProductCard.vue';
 // Import your components here when they're ready
 // import ProductCatalog from './components/ProductCatalog.vue';
 </script>
