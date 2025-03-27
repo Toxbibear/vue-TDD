@@ -5,7 +5,7 @@
     </header>
 
     <main>
-      <ProductCatalog />
+      <ProductSort />
     </main>
 
     <footer>
@@ -14,15 +14,9 @@
   </div>
 </template>
 
-<<<<<<< HEAD
 <script setup>
-import ProductCard from './components/ProductCard.vue';
-// Import your components here when they're ready
-// import ProductCatalog from './components/ProductCatalog.vue';
+  import ProductSort from "./components/ProductSort.vue";
 </script>
-=======
-<script setup></script>
->>>>>>> cb3fa8040eb4d89fb93ca0729b850eb82e36e45a
 
 <style>
 * {
