@@ -1,14 +1,20 @@
-<<<<<<< HEAD
-<script setup></script>
+<script setup>
+const props = defineProps(
+    name: String,
+    price: Number,
+    rating: Number,
+    img: String,
+);
+</script>
 
 <template>
     <div class="productCard">
         <div class="productCardContainer">
-            <img src="" alt="">
+            <img src={{img}} alt="">
             <div class="productCardTextContainer">
-                <h3>productsname</h3>
-                <div name="price" class="price">$199.99</div>
-                <div class="rating"></div>
+                <h3>{{name}}</h3>
+                <div name="price" class="price">{{price}}</div>
+                <div class="rating">{{rating}}</div>
             </div>
         </div>
     </div>
@@ -16,8 +22,3 @@
 </template>
 
 <style scoped></style>
-=======
-<template></template>
-
-<script></script>
->>>>>>> cb3fa8040eb4d89fb93ca0729b850eb82e36e45a
