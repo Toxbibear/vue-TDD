@@ -1,17 +1,37 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue';
+import { categories } from '../../mock-data/products';
 
 const props = defineProps({
   categories: {
     type: Array,
     required: true
+  },
+  selectedCategory: {
+    type: String,
+    required: true
   }
 });
 
+// const categories = [
+  
+//   { id: "electronics", name: "Electronics" },
+//   { id: "clothing", name: "Clothing" },
+//   { id: "home", name: "Home & Kitchen" },
+//   { id: "furniture", name: "Furniture" },
+// ];
+
 const emit = defineEmits(["category-change", "search-change"]);
 
-const categoryChangeHandler = (event) => {
-  emit("category-change", event.target.value);
+const categoryChangeHandler = (value) => {
+  // for (const category in categories) {
+  //   if (category.id === event.target.value) {
+  //     this.$emit("category-change", category.id);
+  //   }s
+  //   console.log(event.target.value);
+  // }
+  // console.log(event.target.value);
+  emit("category-change", value);
 };
 
 
@@ -22,19 +42,20 @@ const searchChangeHandler = (event) => {
 
 <template>
   <div class="ProductFilter">
-    <select @change="categoryChangeHandler" :value="selectedCategory">
-      <option value="">All Categories</option>
+    <select  :value="selectedCategory" data-test="category-select">
+      <option value="" data-test="category-option">All Categories</option>
       <option 
         v-for="category in categories" 
         :key="category.id" 
         :value="category.id" 
-        :data-test="'category-option'">
+        @click="(event)=>{event.preventDefault(); categoryChangeHandler(category.id)}"
+        data-test="category-option">
         {{ category.name }}
       </option>
     </select>
 
     <input 
-      type="text" 
+      type="text"
       placeholder="Search products..." 
       @input="searchChangeHandler" 
     />

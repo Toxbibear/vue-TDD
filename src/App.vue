@@ -5,7 +5,8 @@
     </header>
 
     <main>
-      <ProductSort />
+      
+      <ProductFilter />
     </main>
 
     <footer>
@@ -16,6 +17,7 @@
 
 <script setup>
   import ProductSort from "./components/ProductSort.vue";
+  import ProductFilter from "./components/ProductFilter.vue";
 </script>
 
 <style>

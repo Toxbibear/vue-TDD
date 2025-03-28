@@ -28,7 +28,7 @@ const sortChangeHandler = (event) => {
 
 <template>
   <div>
-    <select @change="sortChangeHandler" v-model="selectedSort" data-test="sort-select">
+    <select @change="sortChangeHandler" data-test="sort-select">
       <option 
         v-for="option in sortOptions" 
         :key="option.value" 
