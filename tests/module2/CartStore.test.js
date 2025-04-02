@@ -8,6 +8,7 @@ describe("Cart Store", () => {
     setActivePinia(createPinia());
   });
 
+  //1. Test if the cart store initializes with an empty cart
   it("initializes with empty cart", async () => {
     let useCartStore;
     try {
@@ -23,6 +24,8 @@ describe("Cart Store", () => {
     expect(cartStore.totalItems).toBe(0);
     expect(cartStore.subtotal).toBe(0);
   });
+
+  //2. Test if the cart store adds a product to the cart
 
   it("adds a product to the cart", async () => {
     let useCartStore;
@@ -44,6 +47,8 @@ describe("Cart Store", () => {
     expect(cartStore.items[0].quantity).toBe(1);
     expect(cartStore.totalItems).toBe(1);
   });
+
+  //3. Test if the cart store increases the quantity when adding the same product again
 
   it("increases quantity when adding the same product again", async () => {
     let useCartStore;
@@ -67,6 +72,8 @@ describe("Cart Store", () => {
     expect(cartStore.totalItems).toBe(2);
   });
 
+  //4. Test if the cart store updates the quantity of a product in the cart
+
   it("updates the quantity of a product in the cart", async () => {
     let useCartStore;
     try {
@@ -88,6 +95,8 @@ describe("Cart Store", () => {
     expect(cartStore.items[0].quantity).toBe(3);
     expect(cartStore.totalItems).toBe(3);
   });
+
+  //5. Test if the cart store removes a product from the cart
 
   it("removes a product from the cart", async () => {
     let useCartStore;
@@ -113,6 +122,8 @@ describe("Cart Store", () => {
     expect(cartStore.items[0].product.id).toBe(product2.id);
   });
 
+  //6. Test if the cart store clears the entire cart
+
   it("clears the entire cart", async () => {
     let useCartStore;
     try {
@@ -135,6 +146,8 @@ describe("Cart Store", () => {
     expect(cartStore.totalItems).toBe(0);
   });
 
+  //7. Test if the cart store calculates the subtotal correctly
+
   it("calculates subtotal correctly", async () => {
     let useCartStore;
     try {
@@ -156,6 +169,8 @@ describe("Cart Store", () => {
     expect(cartStore.subtotal).toBeCloseTo(549.97, 2);
   });
 
+  //8. Test if the cart store calculates the tax correctly
+
   it("calculates tax correctly (8% of subtotal)", async () => {
     let useCartStore;
     try {
@@ -173,6 +188,8 @@ describe("Cart Store", () => {
     // Expected tax: 199.99 * 0.08 = 16.00 (rounded)
     expect(cartStore.tax).toBeCloseTo(16.0, 2);
   });
+
+  //9. Test if the cart store calculates the grand total correctly
 
   it("calculates grand total correctly (subtotal + tax)", async () => {
     let useCartStore;
