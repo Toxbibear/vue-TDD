@@ -6,7 +6,8 @@ export const useCartStore = defineStore('cart', {
     items: [],
     totalItems: 0,
     subtotal: 0,
-  }),
+    taxRate: 0.08,  
+ }),
     actions: {
     addToCart(product) {
       const existingItem = this.items.find(item => item.product.id === product.id);
@@ -21,6 +22,7 @@ export const useCartStore = defineStore('cart', {
     updateQuantity(productId, quantity) {
         const item = this.items.find(item => item.product.id === productId);
         if (item) {
+            this.totalItems += quantity - item.quantity;
             item.quantity = quantity;
             this.subtotal = quantity * item.product.price;
         }
@@ -36,6 +38,7 @@ export const useCartStore = defineStore('cart', {
     },
   },
   getters: {
-    
-  }
+    tax: (state) => Number((state.subtotal * state.taxRate).toFixed(2)),
+    grandTotal: (state) => Number((state.subtotal + state.tax).toFixed(2)),
+}
 })
